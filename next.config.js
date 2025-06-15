@@ -1,10 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: ['uploadthing.com', 'utfs.io', 'img.youtube.com', 'i.ytimg.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'uploadthing.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+      },
+    ],
   },
 }
 

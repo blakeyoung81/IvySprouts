@@ -64,9 +64,11 @@ export function Footer() {
                 <Instagram className="h-6 w-6" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/@IvyLeagueSprouts" 
                 className="text-gray-600 hover:text-soft-green-600 transition-colors"
                 aria-label="YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Youtube className="h-6 w-6" />
               </a>

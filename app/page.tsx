@@ -2,7 +2,7 @@ import { VideoPlayer } from '@/components/video-player'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Play, BookOpen, Users, Sparkles, Mail, ArrowRight, CheckCircle, Star } from 'lucide-react'
+import { Play, BookOpen, Users, Sparkles, Mail, ArrowRight, CheckCircle, Star, Youtube } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
@@ -24,8 +24,8 @@ export default async function Home() {
       {/* Hero Section - Improved */}
       <section className="relative bg-gradient-to-br from-bright-green-50 via-bright-yellow-50 to-bright-pink-50 py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-16 items-center">
+            <div className="text-center lg:text-left lg:col-span-2">
               {/* Social Proof Badge */}
               <div className="inline-flex items-center bg-white rounded-full px-4 py-2 shadow-sm mb-6">
                 <Star className="h-4 w-4 text-yellow-400 mr-2" />
@@ -83,6 +83,12 @@ export default async function Home() {
                     Watch Sample Lesson
                   </Link>
                 </Button>
+                <Button asChild variant="outline" size="lg" className="border-red-300 text-red-600 hover:bg-red-50">
+                  <a href="https://www.youtube.com/@IvyLeagueSprouts" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    <Youtube className="mr-2 h-5 w-5" />
+                    Watch on YouTube
+                  </a>
+                </Button>
               </div>
               
               <p className="text-sm text-gray-500 mt-4">
@@ -91,21 +97,23 @@ export default async function Home() {
             </div>
             
             {/* Hero Image/Video */}
-            <div className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-2xl">
+            <div className="relative lg:col-span-1">
+              <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 w-full max-w-md mx-auto">
                 <div className="aspect-video bg-gradient-to-br from-bright-purple-100 to-bright-pink-100 rounded-2xl flex items-center justify-center mb-6">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg border border-bright-purple-100">
                       <Play className="h-10 w-10 text-bright-purple-600" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Meet Mrs. Jenni!</h3>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Meet Mrs. Jenni!</h3>
                     <p className="text-gray-600">See how our virtual classroom works</p>
                   </div>
                 </div>
+                {/* Divider */}
+                <div className="w-full h-0.5 bg-gradient-to-r from-bright-purple-100 via-bright-green-100 to-bright-pink-100 my-6 rounded-full" />
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-gray-800 mb-2">Ready to Start Learning?</h3>
-                  <p className="text-gray-600 mb-4">Join thousands of families building school readiness together!</p>
-                  <Button className="w-full bg-bright-green-500 hover:bg-bright-green-600">
+                  <p className="text-gray-600 mb-6">Join thousands of families building school readiness together!</p>
+                  <Button className="w-full bg-bright-green-500 hover:bg-bright-green-600 py-4 text-lg font-semibold shadow-md">
                     <Users className="mr-2 h-5 w-5" />
                     Join Mrs. Jenni's Class
                   </Button>
@@ -245,6 +253,115 @@ export default async function Home() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* What's in Your Monthly Box Section */}
+      <section className="py-16 bg-gradient-to-br from-bright-pink-50 via-bright-purple-50 to-bright-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              📦 What's in Your <span className="text-bright-pink-600">Monthly Box?</span>
+            </h2>
+            <p className="text-lg text-gray-600">Every month, receive a carefully curated box of learning materials!</p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Card className="bg-white shadow-xl border-2 border-bright-yellow-200">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-bright-purple-600">
+                    <Sparkles className="h-6 w-6" />
+                    August Welcome Box
+                  </CardTitle>
+                  <CardDescription className="text-lg">Everything you need for Month 1: At School</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">📝 Personalized welcome note from Mrs. Jeni</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">🎭 Playdough for creative expression</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">📋 Printed activity packet with instructions</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">👁️ Fluffy balls and googly eyes (make a classroom buddy!)</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">�� Special Ivy Doll (class mascot)</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">📅 Daily learning notes for the month</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">🎁 Monthly surprise item</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">🖍️ Crayons and fun stickers</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">👨‍👩‍👧‍👦 Parent tips and guidance</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5 bg-soft-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-gray-700 text-sm">📧 Weekly newsletter with bonus activities</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-bright-green-200">
+                <h3 className="text-2xl font-bold text-bright-green-600 mb-3">🎯 Perfectly Age-Appropriate</h3>
+                <p className="text-gray-700">All materials are carefully selected for 2-5 year olds, promoting safe exploration and learning.</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-bright-yellow-200">
+                <h3 className="text-2xl font-bold text-bright-yellow-600 mb-3">📚 Curriculum-Aligned</h3>
+                <p className="text-gray-700">Each box supports the month's learning objectives and video lessons.</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-bright-pink-200">
+                <h3 className="text-2xl font-bold text-bright-pink-600 mb-3">💝 Always a Surprise</h3>
+                <p className="text-gray-700">Every month includes a special surprise item to delight your little learner!</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-bright-purple-200">
+                <h3 className="text-2xl font-bold text-bright-purple-600 mb-3">📧 Weekly Newsletter</h3>
+                <p className="text-gray-700">Get weekly tips, bonus activities, and encouragement delivered to your inbox!</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

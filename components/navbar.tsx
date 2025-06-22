@@ -114,9 +114,9 @@ export function Navbar() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <Button asChild className="w-full bg-bright-purple-500 hover:bg-bright-purple-600 text-white">
-                    <Link href="/auth">Join Class</Link>
-                  </Button>
+                <Button asChild className="w-full bg-bright-purple-500 hover:bg-bright-purple-600 text-white">
+                  <Link href="/auth">Join Class</Link>
+                </Button>
                 </div>
               </div>
             </div>
